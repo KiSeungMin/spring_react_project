@@ -21,10 +21,9 @@ public class MemberController {
     public List<MemberResponseDto> memberList(){
         List<Member> members = memberService.findMembers();
         List<MemberResponseDto> memberResponseDtoList = members.stream()
-                .map(m -> {
+                .map(member -> {
                         MemberResponseDto memberResponseDto = new MemberResponseDto();
-                        memberResponseDto.setId(m.getId());
-                        memberResponseDto.setName(m.getName());
+                        memberResponseDto.setMemberResponseDtoByMember(member);
                         return memberResponseDto;
                 }).toList();
 

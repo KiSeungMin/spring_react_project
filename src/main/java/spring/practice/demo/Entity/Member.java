@@ -12,9 +12,10 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "member_id")
+    private Long id;
 
-    @Column(nullable = false, unique = true, length = 30)
+    @Column(nullable = false, unique = true, length = 30, name = "member_name")
     private String name;
 
     private String password;

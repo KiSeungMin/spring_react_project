@@ -14,37 +14,35 @@ import java.util.Date;
 @AllArgsConstructor     // 모든 필드 값을 파라미터로 받는 기본 생성자 생성
 @NoArgsConstructor()      // 파라미터가 없는 기본 생성자 생성
 @Entity
-@Table(name = "board")
+@Table(name = "item")
 @DynamicInsert      // Insert시 Null인 필드 제외
 @DynamicUpdate      // Update시 Null인 필드 제외
-public class Board {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer no;
+    @Column(name = "item_id")
+    private Long id;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "item_name")
+    private String itemName;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "category")
+    private String category;
 
-    @Column(name = "contents")
-    private String contents;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "member_no")
-    private Integer memberNo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @Column(name = "price")
+    private Integer price;
 
     @Column(name = "created_time")
     private Date createdTime;
 
     @Column(name = "updated_time")
     private Date updatedTime;
-
-    @Column(name = "likes")
-    private Integer likes;
-
-    @Column(name = "counts")
-    private Integer counts;
-
 }
