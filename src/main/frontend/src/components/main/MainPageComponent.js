@@ -17,6 +17,11 @@ const MainPageComponent = () => {
         navigate('/create-item');
     }
 
+    const memberPage = (memberId, e) => {
+        e.preventDefault();
+        navigate('/member/' + memberId);
+    }
+
     return(
         <div>
             <h1 className="h1 text-center">메인페이지</h1>
@@ -24,6 +29,7 @@ const MainPageComponent = () => {
                 <button className="btn btn-primary">로그인</button>
                 <button className="btn btn-primary" onClick={moveToItemList}>아이템 리스트 보기</button>
                 <button className="btn btn-primary" onClick={createItem}>아이템 생성</button>
+                <button className="btn btn-primary" onClick={(e) => memberPage(1, e)}>멤버 1의 정보</button>
             </div>
         </div>
     )

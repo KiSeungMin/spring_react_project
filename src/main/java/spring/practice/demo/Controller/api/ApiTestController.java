@@ -15,26 +15,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ApiTestController {
 
-    private final MemberService memberService;
-
     @GetMapping("/hello")
     public String Hello() {
         return "Hello, world!";
     }
 
-    @RequestMapping("/members")
-    public List<MemberResponseDto> ApiGetMemberList(){
-
-        List<Member> members = memberService.findMembers();
-        List<MemberResponseDto> memberResponseDtoList = members.stream()
-                .map(m -> {
-                    MemberResponseDto memberResponseDto = new MemberResponseDto();
-                    memberResponseDto.setId(m.getId());
-                    memberResponseDto.setName(m.getName());
-                    return memberResponseDto;
-                }).toList();
-
-        return memberResponseDtoList;
-    }
 }
 

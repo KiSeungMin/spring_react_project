@@ -15,20 +15,20 @@ public class MemberRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public void save(Member member) {
+    public void saveMember(Member member) {
         em.persist(member);
     }
 
-    public Member findOne(Long id) {
+    public Member findMember(Long id) {
         return em.find(Member.class, id);
     }
 
-    public List<Member> findAll() {
-        return em.createQuery("select m from Member m", Member.class)
+    public List<Long> findAllMemberIdList() {
+        return em.createQuery("select m.id from Member m", Long.class)
                 .getResultList();
     }
 
-    public List<Member> findByName(String name) {
+    public List<Member> findMemberByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name")
                 .setParameter("name", name)
                 .getResultList();

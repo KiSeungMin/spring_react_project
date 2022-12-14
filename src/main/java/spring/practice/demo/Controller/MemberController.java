@@ -16,10 +16,11 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    /*
     @ResponseBody
     @GetMapping("/members")
     public List<MemberResponseDto> memberList(){
-        List<Member> members = memberService.findMembers();
+        List<Member> members = memberService.findAllMemberIdList();
         List<MemberResponseDto> memberResponseDtoList = members.stream()
                 .map(member -> {
                         MemberResponseDto memberResponseDto = new MemberResponseDto();
@@ -42,8 +43,10 @@ public class MemberController {
         member.setName(memberRequestDto.getName());
         member.setPassword(memberRequestDto.getPassword());
 
-        memberService.join(member);
+        memberService.createMember(member);
 
         return "redirect:/";
     }
+
+     */
 }

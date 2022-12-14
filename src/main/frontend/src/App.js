@@ -8,6 +8,7 @@ import ItemCreateComponent from "./components/item/ItemCreateComponent";
 import ItemComponent from "./components/item/ItemComponent";
 import ItemRouteComponent from "./components/item/ItemRouteComponent";
 import MainPageComponent from "./components/main/MainPageComponent";
+import MemberRouteComponent from "./components/member/MemberRouteComponent";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <div className="container">
                 <Routes>
                     <Route path="/" element = {<MainPageComponent/>}></Route>
+                    <Route path="member/*" element={<MemberRouteComponent/>}></Route>
                     <Route path="item/*" element={<ItemRouteComponent/>}></Route>
                     <Route path="items" element = {<ItemListComponent/>}></Route>
                     {/*<Route path="items/*" element={<ItemListComponent/>}></Route>*/}

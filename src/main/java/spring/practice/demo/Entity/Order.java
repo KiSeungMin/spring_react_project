@@ -25,7 +25,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "member_id")
-    private Member buyer;
+    private Member member;
 
     @Column(name = "quantity")
     private Long quantity;

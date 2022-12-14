@@ -34,6 +34,10 @@ tasks.named('test') {
 }
 
 /**
+ * 실행 방법 : 파일 모두 저장 후 폴더 루트 경로로 이동 -> ./gradlew build 후 실행
+ */
+
+/**
  * 여기서부터는 react와 springBoot 프로젝트가 하나의 패키지가 될 수 있게 빌드를 구성하는 부분
  */
 def frontendDir = "$projectDir/src/main/frontend"

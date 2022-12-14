@@ -5,6 +5,7 @@ import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import spring.practice.demo.Entity.Item;
+import spring.practice.demo.Entity.Member;
 
 import java.util.List;
 
@@ -15,18 +16,25 @@ public class ItemRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public void save(Item item) {
+    public void saveItem(Item item) {
         em.persist(item);
     }
 
-    public Item findOne(Long id) {
+    public Item findItem(Long id) {
         return em.createQuery(
                 "select i from Item i join fetch i.member where i.id = :id", Item.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
 
-    public List<Item> findAll() {
+    public List<Item> findItemsByMember(Member member) {
+        return em.createQuery(
+                "select i from Item i join fetch i.member where i.member = :member", Item.class)
+                .setParameter("member", member)
+                .getResultList();
+    }
+
+    public List<Item> findAllItems() {
         return em.createQuery("select i from Item i join fetch i.member", Item.class)
                 .getResultList();
     }
@@ -36,8 +44,8 @@ public class ItemRepository {
                 .getResultList();
     }
 
-    public void remove(Long id){
-        Item item = findOne(id);
+    public void removeItem(Long id){
+        Item item = findItem(id);
         em.remove(item);
     }
 }
