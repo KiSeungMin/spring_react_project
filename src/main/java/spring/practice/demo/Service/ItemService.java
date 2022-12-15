@@ -29,10 +29,6 @@ public class ItemService {
         return itemRepository.findAllItems();
     }
 
-    public List<Long> getItemIdList(){
-        return itemRepository.findItemIdList();
-    }
-
     public void createItem(ItemRequestDto itemRequestDto){
         Item item = new Item();
         item.setItemName(itemRequestDto.getItemName());

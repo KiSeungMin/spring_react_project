@@ -39,11 +39,6 @@ public class ItemRepository {
                 .getResultList();
     }
 
-    public List<Long> findItemIdList(){
-        return em.createQuery("select i.id from Item i", Long.class)
-                .getResultList();
-    }
-
     public void removeItem(Long id){
         Item item = findItem(id);
         em.remove(item);

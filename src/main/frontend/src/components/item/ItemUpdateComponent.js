@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import itemService from "../../service/item/ItemService";
 
 const ItemUpdateComponent = (props) => {
 
     const navigate = useNavigate();
+    const itemId = Number(useParams().id);
 
     const [itemName, setItemName] = useState('');
     const [category, setCategory] = useState('');
@@ -75,8 +76,8 @@ const ItemUpdateComponent = (props) => {
                                     <input placeholder="price" name="price" className="form-control"
                                            value={price} onChange={changePriceHandler}/>
                                 </div>
-                                <button className="btn btn-success" onClick={(e) => updateItem(props.itemId, e)}>Save</button>
-                                <button className="btn btn-danger" onClick={(e) => cancel(props.itemId, e)} style={{marginLeft:"10px"}}>Cancel</button>
+                                <button className="btn btn-success" onClick={(e) => updateItem(itemId, e)}>Save</button>
+                                <button className="btn btn-danger" onClick={(e) => cancel(itemId, e)} style={{marginLeft:"10px"}}>Cancel</button>
                             </form>
                         </div>
                     </div>

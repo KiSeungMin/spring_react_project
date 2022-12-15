@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import memberService from "../../service/member/memberService";
 
 const MemberPageComponent = (props) => {
 
     const navigate = useNavigate();
+    const params = useParams();
     const[member, setMember] = useState({});
 
     useEffect(() => {
-        memberService.getMember(props.memberId)
+
+        // path 의 item/${} 부분을 받아온다.
+        const memberId = Number(params.id);
+
+        memberService.getMember(memberId)
             .then((res) => {
                 setMember(res.data)
             })

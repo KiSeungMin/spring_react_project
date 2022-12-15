@@ -8,10 +8,6 @@ class MemberService{
     getMember(memberId){
         return axios.get(MEMBER_API_BASE_URL + "/" + memberId);
     }
-
-    getMemberIdList(){
-        return axios.get(MEMBERS_API_BASE_URL);
-    }
 }
 
 export default new MemberService();

@@ -34,10 +34,6 @@ public class MemberService {
         return memberRepository.findMember(memberId);
     }
 
-    public List<Long> findAllMemberIdList() {
-        return memberRepository.findAllMemberIdList();
-    }
-
     public List<Item> getItemsByMemberId(Long memberId){
         Member member = memberRepository.findMember(memberId);
         return itemRepository.findItemsByMember(member);

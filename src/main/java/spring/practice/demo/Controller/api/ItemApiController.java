@@ -56,11 +56,4 @@ public class ItemApiController {
 
         return itemResponseDtoList;
     }
-
-    @GetMapping("/items/id")
-    public List<Long> getItemIdList(){
-        List<Long> itemIdList = itemService.getItemIdList();
-
-        return itemIdList;
-    }
 }

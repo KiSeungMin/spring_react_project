@@ -49,11 +49,4 @@ public class MemberApiController {
         List<Order> orderList = memberService.getOrdersByOrderId(memberId);
         return null;
     }
-
-    @GetMapping("/members")
-    public List<Long> getAllMemberIdList(){
-
-        List<Long> members = memberService.findAllMemberIdList();
-        return members;
-    }
 }

@@ -9,10 +9,6 @@ class ItemService {
         return axios.get(ITEM_API_BASE_URL + "/" + itemId);
     }
 
-    getItemIdList(){
-        return axios.get(ITEMS_API_BASE_URL + "/id");
-    }
-
     getItems(){
         return axios.get(ITEMS_API_BASE_URL);
     }
