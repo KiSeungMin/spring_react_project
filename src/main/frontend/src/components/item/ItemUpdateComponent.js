@@ -16,7 +16,15 @@ const ItemUpdateComponent = (props) => {
     useEffect(() => {
         itemService.getItem(itemId)
             .then((res) => {
-                setItem(res.data)
+
+                let item = res.data
+                setItem(item);
+
+                setItemName(item.itemName);
+                setCategory(item.category);
+                setDescription(item.description);
+                setPrice(item.price)
+
             })
             .catch(error => console.log(error));
     }, []);

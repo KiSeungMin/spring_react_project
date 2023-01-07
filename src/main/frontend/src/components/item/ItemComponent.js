@@ -7,14 +7,11 @@ import ItemDeleteComponent from "./ItemDeleteComponent";
 const ItemComponent = (props) => {
 
     const navigate = useNavigate();
-    const params = useParams();
+    // path 의 item/${} 부분을 받아온다.
+    const itemId = Number(useParams().id);
     const [item, setItem] = useState({});
 
     useEffect( () => {
-
-        // path 의 item/${} 부분을 받아온다.
-        const itemId = Number(params.id);
-        console.log(itemId);
 
         itemService.getItem(itemId)
             .then((res) => {
