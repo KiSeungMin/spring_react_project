@@ -7,13 +7,22 @@ const ItemUpdateComponent = (props) => {
     const navigate = useNavigate();
     const itemId = Number(useParams().id);
 
+    const [item, setItem] = useState({});
     const [itemName, setItemName] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
 
-    const updateItem = (itemId, event) => {
-        event.preventDefault();
+    useEffect(() => {
+        itemService.getItem(itemId)
+            .then((res) => {
+                setItem(res.data)
+            })
+            .catch(error => console.log(error));
+    }, []);
+
+    const updateItem = (itemId, e) => {
+        e.preventDefault();
 
         let item = {
             itemName: itemName,

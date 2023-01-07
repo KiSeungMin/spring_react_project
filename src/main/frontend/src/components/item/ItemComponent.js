@@ -14,6 +14,7 @@ const ItemComponent = (props) => {
 
         // path 의 item/${} 부분을 받아온다.
         const itemId = Number(params.id);
+        console.log(itemId);
 
         itemService.getItem(itemId)
             .then((res) => {
@@ -34,9 +35,9 @@ const ItemComponent = (props) => {
 
     return(
         <div>
-            <Routes>
-                <Route path="/delete" element={<ItemDeleteComponent itemId = {item.id}/>}></Route>
-            </Routes>
+            {/*<Routes>*/}
+            {/*    <Route path="/delete" element={<ItemDeleteComponent itemId = {item.id}/>}></Route>*/}
+            {/*</Routes>*/}
 
             <div className="mt-3">
                 <div className="row">
